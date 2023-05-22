@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Empleados</h4>
+                        <p class="card-category"></p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="text-default">
+                                    <tr>
+                                        <th>Cedula</th>
+                                        <th>Nombre</th>
+                                        <th>Apellidos</th>
+                                        <th>Nacionalidad</th>
+                                        <th>Fecha de Nacimiento</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let emp of empleadoServicio.empleados">
+                                        <td>{{emp.Cedula}}</td>
+                                        <td>
+                                            <ng-container *ngIf="!emp.editing">{{emp.Nombre}}</ng-container>
+                                            <input *ngIf="emp.editing" type="text" [(ngModel)]="emp.Nombre" class="form-control">
+                                        </td>
+                                        <td>
+                                            <ng-container *ngIf="!emp.editing">{{emp.Apellidos}}</ng-container>
+                                            <input *ngIf="emp.editing" type="text" [(ngModel)]="emp.Apellidos" class="form-control">
+                                        </td>
+                                        <td>
+                                            <ng-container *ngIf="!emp.editing">{{emp.Nacionalidad}}</ng-container>
+                                            <input *ngIf="emp.editing" type="text" [(ngModel)]="emp.Nacionalidad" class="form-control">
+                                        </td>
+                                        <td>
+                                            <ng-container *ngIf="!emp.editing">{{emp.FechaNacimiento}}</ng-container>
+                                            <input *ngIf="emp.editing" type="date" [(ngModel)]="emp.FechaNacimiento" class="form-control">
+                                        </td>
+                                        <td>
+                                            <ng-container *ngIf="!emp.editing">
+                                                <a class="action-btn" (click)="editarEmpleado(emp)">
+                                                    <i class="material-icons">edit</i>
+                                                </a>
+                                                <a class="action-btn" (click)="Eliminar(emp._id, empleadosForm)">
+                                                    <i class="material-icons">delete</i>
+                                                </a>
+                                            </ng-container>
+                                            <ng-container *ngIf="emp.editing">
+                                                <a class="action-btn" (click)="guardarEmpleado(emp)">
+                                                    <i class="material-icons">save</i>
+                                                </a>
+                                                <a class="action-btn" (click)="cancelarEdicion(emp)">
+                                                    <i class="material-icons">cancel</i>
+                                                </a>
+                                            </ng-container>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="exportExcel()">Exportar</button>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="goToPage()">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

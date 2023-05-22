@@ -1,0 +1,71 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Proveedores</h4>
+              <p class="card-category"></p>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="text-default">
+                    <tr>
+                      <th>Cedula</th>
+                      <th>Nombre</th>
+                      <th>Apellidos</th>
+                      <th>Producto</th>
+                      <th>Fecha de Ingreso</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let prov of proveedorServicio.proveedores">
+                        <td>{{prov.Cedula}}</td>
+                        <td>
+                            <ng-container *ngIf="!prov.editing">{{prov.Nombre}}</ng-container>
+                            <input *ngIf="prov.editing" type="text" [(ngModel)]="prov.Nombre" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!prov.editing">{{prov.Apellidos}}</ng-container>
+                            <input *ngIf="prov.editing" type="text" [(ngModel)]="prov.Apellidos" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!prov.editing">{{prov.producto}}</ng-container>
+                            <input *ngIf="prov.editing" type="text" [(ngModel)]="prov.producto" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!prov.editing">{{prov.fechaIngreso}}</ng-container>
+                            <input *ngIf="prov.editing" type="date" [(ngModel)]="prov.fechaIngreso" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!prov.editing">
+                                <a class="action-btn" (click)="editarProveedor(prov)">
+                                    <i class="material-icons">edit</i>
+                                </a>
+                                <a class="action-btn" (click)="Eliminar(prov._id, proveedoresForm)">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                            </ng-container>
+                            <ng-container *ngIf="prov.editing">
+                                <a class="action-btn" (click)="guardarProveedor(prov)">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a class="action-btn" (click)="cancelarEdicion(prov)">
+                                    <i class="material-icons">cancel</i>
+                                </a>
+                            </ng-container>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+                <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="exportExcel()">Exportar</button>
+                <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="goToPage()">Agregar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

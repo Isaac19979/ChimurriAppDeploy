@@ -1,0 +1,48 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Agregar Empleado</h4>
+                        <p class="card-category">Inserte los datos del empleado</p>
+                    </div>
+                    <div class="card-body">
+                        <form #empleadosForm="ngForm" (ngSubmit)="onSubmit(empleadosForm)">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Cedula" type="text" name="Cedula" #name="ngModel" [(ngModel)]="empleadoServicio.selectedEmpleado.Cedula" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Nombre" type="text" name="Nombre" #name="ngModel" [(ngModel)]="empleadoServicio.selectedEmpleado.Nombre" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Apellidos" type="text" name="Apellidos" #name="ngModel" [(ngModel)]="empleadoServicio.selectedEmpleado.Apellidos" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Fecha de Nacimiento" type="date" name="FechaNacimiento" #name="ngModel" [(ngModel)]="empleadoServicio.selectedEmpleado.FechaNacimiento" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Nacionalidad" type="text" name="Nacionalidad" #name="ngModel" [(ngModel)]="empleadoServicio.selectedEmpleado.Nacionalidad" required>
+                                    </mat-form-field>
+                                </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" >Agregar</button>
+                            <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="goToPage()">Regresar</button>
+
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

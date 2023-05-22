@@ -1,0 +1,37 @@
+  <div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Calculos</h4>
+                        <p class="card-category"></p>
+                    </div>
+                    <div class="card-body">
+                      <div class="col-md-5">
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Ingresar la cantidad de quintales a comprar" type="number" [(ngModel)]="num1" required>
+                            </mat-form-field>
+                    </div>
+                    <div class="col-md-5">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Ingresar el precio por quintal" type="number" [(ngModel)]="num2" required>
+                          </mat-form-field>
+                  </div>
+                  <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Resultado" type="text" readonly [(ngModel)]="result">
+                    </mat-form-field>
+                  </div>
+
+                      <button mat-raised-button class="btn btn-danger pull-right" (click)="multiply()">Calcular</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

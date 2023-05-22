@@ -1,0 +1,70 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Productos</h4>
+              <p class="card-category"></p>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="text-default">
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Detalles</th>
+                      <th>Cantidad</th>
+                      <th>Fecha de Ingreso</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let prod of productosServicio.Productos">
+                        <td>
+                            <ng-container *ngIf="!prod.editing">{{prod.Nombre}}</ng-container>
+                            <input *ngIf="prod.editing" type="text" [(ngModel)]="prod.Nombre" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!prod.editing">{{prod.detalles}}</ng-container>
+                            <input *ngIf="prod.editing" type="text" [(ngModel)]="prod.detalles" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!prod.editing">{{prod.Cantidad}}</ng-container>
+                            <input *ngIf="prod.editing" type="number" [(ngModel)]="prod.Cantidad" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!prod.editing">{{prod.fechaIngreso}}</ng-container>
+                            <input *ngIf="prod.editing" type="date" [(ngModel)]="prod.fechaIngreso" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!prod.editing">
+                                <a class="action-btn" (click)="editarProducto(prod)">
+                                    <i class="material-icons">edit</i>
+                                </a>
+                                <a class="action-btn" (click)="Eliminar(prod._id, productosForm)">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                            </ng-container>
+                            <ng-container *ngIf="prod.editing">
+                                <a class="action-btn" (click)="guardarProducto(prod)">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a class="action-btn" (click)="cancelarEdicion(prod)">
+                                    <i class="material-icons">cancel</i>
+                                </a>
+                            </ng-container>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+                <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="exportExcel()">Exportar</button>
+                <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="goToPage()">Agregar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

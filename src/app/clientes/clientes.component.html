@@ -1,0 +1,71 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Clientes</h4>
+              <p class="card-category"></p>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="text-default">
+                    <tr>
+                      <th>Cédula</th>
+                      <th>Nombre</th>
+                      <th>Apellidos</th>
+                      <th>Cantidad</th>
+                      <th>Fecha de Ingreso</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let cl of clienteServicio.clientes">
+                        <td>{{cl.Cedula}}</td>
+                        <td>
+                            <ng-container *ngIf="!cl.editing">{{cl.Nombre}}</ng-container>
+                            <input *ngIf="cl.editing" type="text" [(ngModel)]="cl.Nombre" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!cl.editing">{{cl.Apellidos}}</ng-container>
+                            <input *ngIf="cl.editing" type="text" [(ngModel)]="cl.Apellidos" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!cl.editing">{{cl.Cantidad}}</ng-container>
+                            <input *ngIf="cl.editing" type="number" [(ngModel)]="cl.Cantidad" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!cl.editing">{{cl.fechaIngreso}}</ng-container>
+                            <input *ngIf="cl.editing" type="date" [(ngModel)]="cl.fechaIngreso" class="form-control">
+                        </td>
+                        <td>
+                            <ng-container *ngIf="!cl.editing">
+                                <a class="action-btn" (click)="editarCliente(cl)">
+                                    <i class="material-icons">edit</i>
+                                </a>
+                                <a class="action-btn" (click)="Eliminar(cl._id, clientesForm)">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                            </ng-container>
+                            <ng-container *ngIf="cl.editing">
+                                <a class="action-btn" (click)="guardarCliente(cl)">
+                                    <i class="material-icons">save</i>
+                                </a>
+                                <a class="action-btn" (click)="cancelarEdicion(cl)">
+                                    <i class="material-icons">cancel</i>
+                                </a>
+                            </ng-container>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+                <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="exportExcel()">Exportar</button>
+                <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="goToPage()">Agregar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

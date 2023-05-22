@@ -1,0 +1,45 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Agregar Productos</h4>
+                        <p class="card-category">Inserte los datos del producto</p>
+                    </div>
+                    <div class="card-body">
+                        <form #productosForm="ngForm" (ngSubmit)="onSubmit(productosForm)">
+                            
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Nombre" type="text" name="Nombre" #name="ngModel" [(ngModel)]="productosServicio.selectedProductos.Nombre" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Detalles" type="text" name="detalles" #name="ngModel" [(ngModel)]="productosServicio.selectedProductos.detalles" required>
+                                    </mat-form-field>
+                                </div>
+                           
+                            
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Cantidad" type="number" name="Cantidad" #name="ngModel" [(ngModel)]="productosServicio.selectedProductos.Cantidad" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Fecha de Ingreso" type="date" name="fechaIngreso" #name="ngModel" [(ngModel)]="productosServicio.selectedProductos.fechaIngreso" required>
+                                    </mat-form-field>
+                                </div>
+                            
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Agregar</button>
+                            <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="goToPage()">Regresar</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
