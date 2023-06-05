@@ -44,6 +44,7 @@ export class ProveedoresComponent {
 
   exportExcel(): void {
     this.proveedorServicio.getProveedores().subscribe(data => {
+      if (data && Object.keys(data).length > 0){
       console.log(data)
       const sheetName = 'Sheet1';
       const worksheet = XLSX.utils.json_to_sheet(Object.values(data), {});
@@ -52,6 +53,12 @@ export class ProveedoresComponent {
       const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
       const excelBlob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
       FileSaver.saveAs(excelBlob, 'proveedores.xlsx');
+      } else{
+        Swal.fire({
+          title:'No existen datos',
+          icon: 'error',
+        })
+      }
     });
   }
 

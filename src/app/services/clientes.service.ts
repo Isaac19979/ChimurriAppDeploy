@@ -14,7 +14,7 @@ import { Clientes } from 'app/models/clientes.model'
 export class ClientesService {
   selectedCliente: Clientes;
   clientes: Clientes[];
-  readonly baseUrl= 'http://localhost:4000/clientes'
+  readonly baseUrl= 'https://backend-chimurriapp/clientes'
 
   constructor(private http: HttpClient) { }
 

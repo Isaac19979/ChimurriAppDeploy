@@ -11,7 +11,7 @@ import { Empleados } from 'app/models/empleados.model'
 export class EmpleadosService {
   selectedEmpleado: Empleados;
   empleados: Empleados[];
-  readonly baseUrl= 'http://localhost:4000/empleados'
+  readonly baseUrl= 'https://backend-chimurriapp/empleados'
 
   constructor(private http: HttpClient) { }
 

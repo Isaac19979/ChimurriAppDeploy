@@ -8,7 +8,7 @@ import { Productos } from 'app/models/productos.model';
 export class ProductosService {
   selectedProductos: Productos;
   Productos: Productos[];
-  readonly baseUrl= 'http://localhost:4000/productos'
+  readonly baseUrl= 'https://backend-chimurriapp/productos'
 
   constructor(private http: HttpClient) { }
 

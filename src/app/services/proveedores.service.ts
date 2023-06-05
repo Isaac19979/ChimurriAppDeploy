@@ -10,7 +10,7 @@ import { Proveedores } from 'app/models/proveedores.model'
 export class ProveedoresService {
   selectedProveedor: Proveedores;
   proveedores: Proveedores[];
-  readonly baseUrl= 'http://localhost:4000/proveedor'
+  readonly baseUrl= 'https://backend-chimurriapp/proveedor'
 
   constructor(private http: HttpClient) { }
 
